@@ -629,7 +629,7 @@ var USER_PREFERENCE_AUTOCOMPLETE_SELECTORS = 'autocomplete-css-selectors',
                             await thisOb.savePosition({ top: ui.position.top, left: ui.position.left });
                         }
 
-                        thisOb.focus();
+                        // thisOb.focus();
                     });
                 }
             });
@@ -650,20 +650,20 @@ var USER_PREFERENCE_AUTOCOMPLETE_SELECTORS = 'autocomplete-css-selectors',
             var indentWithTabs = await thisOb.userPreference('use-tab-for-indentation') === 'yes';
             var codemirrorOptions = {
                 value: thisOb.textarea.value,
-                placeholder: thisOb.getOption('placeholder'),
+                // placeholder: thisOb.getOption('placeholder'),
 
                 gutters: [],
                 lint: false,
                 lineNumbers: await thisOb.userPreference('show-line-numbers') === 'yes' ? true : false,   // Eventually, lineNumbers also adds a value in "gutters" array
 
-                styleActiveLine: {
-                    nonEmpty: true
-                },
+                // styleActiveLine: {
+                //     nonEmpty: true
+                // },
 
-                matchBrackets: true,
+                // matchBrackets: true,
 
-                keyMap: "sublime",
-                showCursorWhenSelecting: true,
+                // keyMap: "sublime",
+                // showCursorWhenSelecting: true,
 
                 indentWithTabs: indentWithTabs,
                 indentUnit: (!indentWithTabs && parseInt(await thisOb.userPreference('indentation-spaces-count'), 10)) || 4,

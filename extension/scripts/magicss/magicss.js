@@ -2577,7 +2577,7 @@ var const_rateUsUsageCounterFrom = 20,
                         colorpicker: {
                             mode: 'edit'
                         },
-                        autoCloseBrackets: true,
+                        // autoCloseBrackets: true,
                         /*
                         hintOptions: {
                             completeSingle: false,
@@ -2638,44 +2638,47 @@ var const_rateUsUsageCounterFrom = 20,
                                 options.mode = 'text/css';
                             }
 
-                            options.hintOptions = {
-                                completeSingle: false,
-                                // closeCharacters: /[\s()\[\]{};:>,]/,     // This is the default value defined in show-hint.js
-                                closeCharacters: /[(){};:,]/,               // Custom override
-                                onAddingAutoCompleteOptionsForSelector: (
-                                    (await userPreference(USER_PREFERENCE_AUTOCOMPLETE_SELECTORS)) === 'no'
-                                        ? null
-                                        : (
-                                            function (add) {
-                                                if (existingCSSSelectorsWithAutocompleteObjects) {
-                                                    add(existingCSSSelectorsWithAutocompleteObjects, true);
-                                                }
-                                            }
-                                        )
-                                ),
-                                onAddingAutoCompleteOptionsForCSSProperty: (
-                                    (await userPreference(USER_PREFERENCE_AUTOCOMPLETE_CSS_PROPERTIES_AND_VALUES)) === 'no'
-                                        ? (
-                                            function noop() {
-                                                // do nothing
-                                            }
-                                        )
-                                        : (
-                                            function (add) {
-                                                add(cssPropertyKeywordsAutocompleteObject, true);
-                                            }
-                                        )
-                                ),
-                                onCssHintSelectForSelector: function (selectedText) {
-                                    var editor = window.MagiCSSEditor;
-                                    showCSSSelectorMatches(selectedText, editor);
-                                },
-                                onCssHintShownForSelector: function () {    /* As per current CodeMirror/css-hint architecture,
-                                                                               "select" is called before "shown".
-                                                                               The "select" operation would also show the number  e are hiding the alertNote */
-                                    utils.alertNote.hide();
-                                }
-                            };
+
+                            // options.hintOptions = {
+                            //     // completeSingle: false,
+                            //     // closeCharacters: /[\s()\[\]{};:>,]/,     // This is the default value defined in show-hint.js
+                            //     // closeCharacters: /[(){};:,]/,               // Custom override
+                            //     // closeCharacters: null,               // Custom override
+                            //     closeCharacters: /[,]/,               // Custom override
+                            //     onAddingAutoCompleteOptionsForSelector: (
+                            //         (await userPreference(USER_PREFERENCE_AUTOCOMPLETE_SELECTORS)) === 'no'
+                            //             ? null
+                            //             : (
+                            //                 function (add) {
+                            //                     if (existingCSSSelectorsWithAutocompleteObjects) {
+                            //                         add(existingCSSSelectorsWithAutocompleteObjects, true);
+                            //                     }
+                            //                 }
+                            //             )
+                            //     ),
+                            //     onAddingAutoCompleteOptionsForCSSProperty: (
+                            //         (await userPreference(USER_PREFERENCE_AUTOCOMPLETE_CSS_PROPERTIES_AND_VALUES)) === 'no'
+                            //             ? (
+                            //                 function noop() {
+                            //                     // do nothing
+                            //                 }
+                            //             )
+                            //             : (
+                            //                 function (add) {
+                            //                     add(cssPropertyKeywordsAutocompleteObject, true);
+                            //                 }
+                            //             )
+                            //     ),
+                            //     onCssHintSelectForSelector: function (selectedText) {
+                            //         var editor = window.MagiCSSEditor;
+                            //         showCSSSelectorMatches(selectedText, editor);
+                            //     },
+                            //     onCssHintShownForSelector: function () {    /* As per current CodeMirror/css-hint architecture,
+                            //                                                    "select" is called before "shown".
+                            //                                                    The "select" operation would also show the number  e are hiding the alertNote */
+                            //         utils.alertNote.hide();
+                            //     }
+                            // };
 
                             return options;
                         }
@@ -2755,7 +2758,7 @@ var const_rateUsUsageCounterFrom = 20,
                                 } else {
                                     await editor.disableEnableCSS('disable');
                                 }
-                                editor.focus();
+                                // editor.focus();
                             },
                             afterrender: function (editor, divIcon) {
                                 // TODO: Make the code independent of this setTimeout logic.

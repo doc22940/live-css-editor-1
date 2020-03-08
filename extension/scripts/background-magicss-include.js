@@ -271,7 +271,7 @@ var main = function (tab) {     // eslint-disable-line no-unused-vars
             pathCodeMirror + 'addons/edit/matchbrackets.js',
 
             // This is required for some cases in multi-selection (using Ctrl+D)
-            pathCodeMirror + 'addons/search/searchcursor.js',
+            // pathCodeMirror + 'addons/search/searchcursor.js',
 
             pathCodeMirror + 'addons/comment/comment.js',
 
